@@ -1,0 +1,10 @@
+<ng-container *ngIf="isLoggedIn; then loggedIn; else loggedOut"> </ng-container>
+<ng-template #loggedIn
+  ><div>
+    We Are Logged In
+    <button class="btn" class="btn btn-success" (click)="getGames()">
+      Get Games
+    </button>
+  </div></ng-template
+>
+<ng-template #loggedOut><login></login></ng-template>
