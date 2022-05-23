@@ -55,11 +55,7 @@ public class SecurityConfiguration {
 
     @Bean
     public UserDetailsManager users(DataSource dataSource){
-        UserDetails user = User.withDefaultPasswordEncoder()
-                .username("user")
-                .password("password")
-                .roles("USER")
-                .build();
+        UserDetails user = User.withUsername("user").password(passwordEncoder().encode("password")).roles("USER").build();
         JdbcUserDetailsManager users = new JdbcUserDetailsManager(dataSource);
         users.createUser(user);
         return users;
