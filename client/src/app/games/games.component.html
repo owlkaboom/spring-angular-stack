@@ -1,0 +1,14 @@
+<div>
+  Filter by Game Name
+  <input [(ngModel)]="filterName" />
+</div>
+<div>
+  Filter by Game Difficulty
+  <input [(ngModel)]="filterDiff" />
+</div>
+<li *ngFor="let game of games | gamesFilter: [filterName, filterDiff]">
+  <span>{{ game.name }}</span>
+  <span>
+    {{ game.difficulty }}
+  </span>
+</li>

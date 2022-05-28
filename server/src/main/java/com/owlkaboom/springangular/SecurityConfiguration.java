@@ -16,7 +16,6 @@ import org.springframework.security.web.authentication.SimpleUrlAuthenticationFa
 import org.springframework.security.web.authentication.logout.HttpStatusReturningLogoutSuccessHandler;
 
 import javax.sql.DataSource;
-import java.security.Principal;
 
 @Configuration
 public class SecurityConfiguration {

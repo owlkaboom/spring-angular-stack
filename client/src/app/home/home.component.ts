@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Output } from '@angular/core';
 import { AuthService } from '../services/AuthService';
 
 @Component({
@@ -6,6 +6,7 @@ import { AuthService } from '../services/AuthService';
 })
 export class HomeComponent {
   title = 'Home';
+  @Output() games: any[] = [];
   constructor(private auth: AuthService) {}
 
   get isLoggedIn(): boolean {
@@ -13,6 +14,6 @@ export class HomeComponent {
   }
 
   async getGames() {
-    await this.auth.getGames();
+    this.games = await this.auth.getGames();
   }
 }

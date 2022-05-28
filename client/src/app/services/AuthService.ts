@@ -53,15 +53,18 @@ export class AuthService {
     }
   }
 
-  async getGames() {
+  async getGames(): Promise<any[]> {
     const resp = await this.http
-      .get(`${environment.apiServerUrl}/game`, {
+      .get<any[]>(`${environment.apiServerUrl}/game`, {
         withCredentials: true,
         headers: {
           'Content-Type': 'application/json',
         },
       })
       .toPromise();
-    console.log(resp);
+    if (resp) {
+      return resp;
+    }
+    return [];
   }
 }
